@@ -1,6 +1,14 @@
+/*
+ * @Author: vigorzhang
+ * @Date: 2020-03-09 16:41:18
+ * @LastEditors: Riddick
+ * @LastEditTime: 2020-03-10 09:54:12
+ * @Description: 
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Shop from '../views/Shop.vue'
 
 Vue.use(VueRouter)
 
@@ -8,7 +16,12 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    children:[{
+      path:'',
+      name:'shop',
+      component:Shop
+    }]
   },
   // {
   //   path: '/sider',
