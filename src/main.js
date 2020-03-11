@@ -1,9 +1,18 @@
+/*
+ * @Author: vigorzhang
+ * @Date: 2020-03-09 16:46:14
+ * @LastEditors: Riddick
+ * @LastEditTime: 2020-03-10 15:12:48
+ * @Description: 
+ */
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import './assets/js/rem'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 Vue.use(ElementUI);
 new Vue({

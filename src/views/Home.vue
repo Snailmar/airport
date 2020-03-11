@@ -2,7 +2,7 @@
  * @Author: vigorzhang
  * @Date: 2020-03-09 17:36:55
  * @LastEditors: Riddick
- * @LastEditTime: 2020-03-10 10:13:49
+ * @LastEditTime: 2020-03-11 18:12:52
  * @Description: 
  -->
 <template>
@@ -39,6 +39,9 @@
     position: relative;
     .tac {
       height: 100%;
+      .el-col-2{
+        height: 100%;
+      }
     }
   }
 </style>
