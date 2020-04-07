@@ -2,59 +2,17 @@
  * @Author: vigorzhang
  * @Date: 2020-03-10 09:44:22
  * @LastEditors: Riddick
- * @LastEditTime: 2020-03-12 10:32:38
+ * @LastEditTime: 2020-03-16 11:17:31
  * @Description: 
  -->
 <template>
-    <div class="viewShop">
+    <div class="viewVideo">
         <TopBar />
         <div class="vChoose">
             选择类型
             <el-select v-model="cvalue" placeholder="请选择" size="medium" style="margin-left:.1rem">
                 <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
             </el-select>
-        </div>
-        <div class="capital flex">
-            <div class="cCell">
-                <div class="cTile">总计营收</div>
-                <div class="cMoney">
-                    2000
-                    <i>万</i>
-                </div>
-                <div class="ccpare">
-                    <img src="../assets/img/down.png" alt />+130万
-                </div>
-            </div>
-            <div class="cCell">
-                <div class="cTile">总计营收</div>
-                <div class="cMoney">
-                    2000
-                    <i>万</i>
-                </div>
-                <div class="ccpare">
-                    <img src="../assets/img/down.png" alt />+130万
-                </div>
-            </div>
-            <div class="cCell">
-                <div class="cTile">总计营收</div>
-                <div class="cMoney">
-                    2000
-                    <i>万</i>
-                </div>
-                <div class="ccpare">
-                    <img src="../assets/img/down.png" alt />+130万
-                </div>
-            </div>
-            <div class="cCell">
-                <div class="cTile">总计营收</div>
-                <div class="cMoney">
-                    2000
-                    <i>万</i>
-                </div>
-                <div class="ccpare">
-                    <img src="../assets/img/down.png" alt />+130万
-                </div>
-            </div>
         </div>
         <el-row class="sContent">
             <div class="contentChoose">
@@ -64,31 +22,37 @@
                 </el-select>
             </div>
             <el-col class="ccWrap">
-                <el-row class="chartcell" style="margin-bottom:.2rem">
-                    <CategoryChart/>
+                <el-row class="chartcell">
+                    <VideoCom></VideoCom>
                 </el-row>
                 <el-row class="chartcell">
-                    <LineChart/>
+                    <VideoCom></VideoCom>
                 </el-row>
-                <el-row></el-row>
+                <el-row class="chartcell">
+                    <VideoCom></VideoCom>
+                </el-row>
             </el-col>
-             <el-col class="ccWrap" style="margin:0 .2rem">
-                <el-row class="chartcell" style="margin-bottom:.2rem">
-                    <RangeChart/>
+            <el-col class="ccWrap" style="margin:0 .3rem">
+                <el-row class="chartcell">
+                    <VideoCom></VideoCom>
                 </el-row>
                 <el-row class="chartcell">
-                    <LineChart/>
+                    <VideoCom></VideoCom>
                 </el-row>
-                <el-row></el-row>
+                <el-row class="chartcell">
+                    <VideoCom></VideoCom>
+                </el-row>
             </el-col>
-             <el-col class="ccWrap">
-                <el-row class="chartcell" style="margin-bottom:.2rem">
-                    <DonutChart/>
+            <el-col class="ccWrap">
+                <el-row class="chartcell">
+                    <VideoCom></VideoCom>
                 </el-row>
                 <el-row class="chartcell">
-                    <DonutChart/>
+                    <VideoCom></VideoCom>
                 </el-row>
-                <el-row></el-row>
+                <el-row class="chartcell">
+                    <VideoCom></VideoCom>
+                </el-row>
             </el-col>
         </el-row>
     </div>
@@ -96,10 +60,7 @@
 
 <script>
     import TopBar from "@/components/TopBar.vue";
-    import CategoryChart from "@/components/CategoryChart.vue";
-    import LineChart from "@/components/LineChart.vue";
-    import RangeChart from "@/components/RangeChart.vue";
-    import DonutChart from "@/components/DonutChart.vue";
+    import VideoCom from "@/components/VideoCom.vue";
     export default {
         data() {
             return {
@@ -117,13 +78,13 @@
         },
         components: {
             TopBar,
-            CategoryChart,LineChart,RangeChart,DonutChart
+            VideoCom
         }
     };
 </script>
 
 <style lang="scss">
-    .viewShop {
+    .viewVideo {
         .vChoose {
             color: #9eadda;
             font-size: 0.16rem;
@@ -143,33 +104,6 @@
                     position: absolute;
                     top: 50%;
                     transform: translateY(-50%);
-                }
-            }
-        }
-        .capital {
-            margin-left: 0.8rem;
-            margin-top: 0.5rem;
-            .cCell {
-                margin-right: 1.2rem;
-                .cTile {
-                    font-size: 0.15rem;
-                    color: #9eadda;
-                }
-                .cMoney {
-                    font-size: 0.5rem;
-                    color: #fff;
-                    i {
-                        font-size: 0.28rem;
-                        margin-left: 0.14rem;
-                    }
-                }
-                .ccpare {
-                    color: #9eadda;
-                    font-size: 0.15rem;
-                    img {
-                        width: 0.14rem;
-                        margin-right: 0.14rem;
-                    }
                 }
             }
         }
@@ -201,15 +135,15 @@
                 }
             }
         }
-        .ccWrap{
-             width: 4.98rem;
-        }
-        .chartcell{
+        .ccWrap {
             width: 4.98rem;
-            height: 2.6rem;
+        }
+        .chartcell {
+            width: 4.98rem;
+            height: 2.4rem;
             background: linear-gradient(184deg, rgba(56, 79, 132, 1), rgba(43, 62, 122, 1));
-            box-shadow: 4px 5px 21px 0px rgba(13, 5, 10, 0.08);
             border-radius: .06rem;
+            margin-bottom: .2rem;
         }
     }
 </style>

@@ -2,12 +2,13 @@
  * @Author: vigorzhang
  * @Date: 2020-03-10 16:19:59
  * @LastEditors: Riddick
- * @LastEditTime: 2020-03-11 17:38:26
+ * @LastEditTime: 2020-03-12 11:05:24
  * @Description: 
  -->
 <template>
-    <div id="category" style="width:4.98rem;height:2.6rem">
-    </div>
+
+    <div  style="width:100%;height:100%" ref="category">
+</div>
 </template>
  
 <script>
@@ -18,10 +19,18 @@
         },
         methods: {
             drawChart() {
-                let chart = echarts.init(document.getElementById('category'))
+                let chart = echarts.init(this.$refs.category)
                 chart.setOption({
+                     grid:{
+                        bottom:'0',
+                        left:'-10',
+                        right:'-10'
+                    },
                     xAxis: {
                         type: 'category',
+                        
+                        // nameGap:150,
+                        offset:-30,
                         boundaryGap: false,
                         data: [' ', '12月', '1月', '2月', '3月', '4月', ' '],
                         axisTick: {
@@ -61,7 +70,11 @@
                         },
                         smooth: true,
                         symbolSize: 4,
-                        color: 'transparent'
+                        color: 'transparent',
+                        label:{
+                            show:true,
+                            position:'bottom'
+                        }
                     }]
                 })
             }

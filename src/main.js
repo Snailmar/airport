@@ -2,7 +2,7 @@
  * @Author: vigorzhang
  * @Date: 2020-03-09 16:46:14
  * @LastEditors: Riddick
- * @LastEditTime: 2020-03-10 15:12:48
+ * @LastEditTime: 2020-04-02 14:33:00
  * @Description: 
  */
 import Vue from 'vue'
@@ -15,6 +15,7 @@ import echarts from 'echarts'
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 Vue.use(ElementUI);
+
 new Vue({
   router,
   render: h => h(App)

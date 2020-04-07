@@ -2,11 +2,11 @@
  * @Author: vigorzhang
  * @Date: 2020-03-10 16:19:59
  * @LastEditors: Riddick
- * @LastEditTime: 2020-03-11 17:51:42
+ * @LastEditTime: 2020-03-12 11:06:15
  * @Description: 
  -->
 <template>
-    <div id="line" style="width:4.98rem;height:2.6rem">
+    <div ref="line" style="width:100%;height:100%">
     </div>
 </template>
  
@@ -18,8 +18,9 @@
         },
         methods: {
             drawChart() {
-                let chart = echarts.init(document.getElementById('line'))
+                let chart = echarts.init(this.$refs.line)
                 var option = {
+                  
                     xAxis: {
                         type: 'category',
                         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
