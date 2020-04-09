@@ -37,6 +37,9 @@
     height: 100%;
     overflow: hidden;
     position: relative;
+      color: #2c3e50;
+  background: url('../assets/img/airport_bg.png') no-repeat;
+  background-size: cover;
     .tac {
       height: 100%;
       .el-col-2{

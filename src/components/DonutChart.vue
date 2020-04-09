@@ -11,62 +11,89 @@
 </template>
  
 <script>
-    import echarts from 'echarts'
+    import echarts from "echarts";
     export default {
+        data() {
+            return {
+                correctRate: '30'
+            };
+        },
+        props: {},
         mounted() {
-            this.drawChart()
+            this.drawChart();
         },
         methods: {
             drawChart() {
-                let chart = echarts.init(this.$refs.donut)
+                let that = this;
+                let chart = echarts.init(this.$refs.donut);
                 var option = {
-    tooltip: {
-        trigger: 'item',
-        formatter: '{a} <br/>{b}: {c} ({d}%)'
-    },
-    legend: {
-        orient: 'vertical',
-        left: 'center',
-        top:'center',
-        data: ['直接访问', '']
-    },
-    series: [
-        {
-            name: '访问来源',
-            type: 'pie',
-            radius: ['50%', '70%'],
-            avoidLabelOverlap: false,
-            label: {
-                normal: {
-                    show: false,
-                    position: 'center'
-                },
-                emphasis: {
-                    show: true,
-                    textStyle: {
-                        fontSize: '30',
-                        fontWeight: 'bold'
-                    }
-                }
-            },
-            labelLine: {
-                normal: {
-                    show: false
-                }
-            },
-            data: [
-                {value: 35, name: '直接访问'},
-                {value: 310, name: '邮件营销'},
-               
-            ]
-        }
-    ]
-};
-
-                chart.setOption(option)
+                    tooltip: {
+                        show: false
+                    },
+                    legend: {
+                        show: false
+                    },
+                    series: [{
+                        name: "完成率",
+                        type: "pie",
+                        radius: ["60%", "87%"],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    show: true,
+                                    position: "center",
+                                    formatter: this.correctRate,
+                                    textStyle: {
+                                        color: "#fff",
+                                        fontSize: "30",
+                                        fontFamily: "微软雅黑",
+                                        fontWeight: "bold"
+                                    }
+                                },
+                                labelLine: {
+                                    show: false
+                                }
+                            }
+                        },
+                        data: [{
+                                value: this.correctRate,
+                                name: "完成",
+                                itemStyle: {
+                                    normal: {
+                                        //颜色渐变
+                                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                                offset: 0,
+                                                color: "#7558F0"
+                                            },
+                                            // {
+                                            //     offset: 0.5,
+                                            //     color: "#0CB9FF"
+                                            // },
+                                            {
+                                                offset: 1,
+                                                color: "#6ACAFC"
+                                            }
+                                        ])
+                                    }
+                                }
+                            },
+                            {
+                                value: 100 - this.correctRate,
+                                name: "未完成",
+                                itemStyle:{
+                                    normal:{
+                                        color:'#435382'
+                                    }
+                                }
+                            }
+                        ]
+                    }]
+                };
+                chart.setOption(option);
             }
         }
-    }
+    };
 </script>
  
 <style lang="scss" scoped>
